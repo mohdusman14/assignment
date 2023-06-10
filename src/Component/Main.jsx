@@ -6,14 +6,12 @@ export default function Main() {
  const [singleItem,setSingleItem] = useState({})
 
  const getData = (item)=>{
-  console.log(item)
   setSingleItem(item)
  }
 
   useEffect(()=>{
     axios.get('https://randomuser.me/api/?inc=gender,name,nat,location,picture,email&results=%2020')
     .then((res)=>{
-      console.log(res.data.results)
       setData(res.data.results)
       setSingleItem(res.data.results[0])
     })
